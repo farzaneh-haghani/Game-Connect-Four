@@ -31,4 +31,18 @@ export class ConnectFour {
     }
     return false;
   }
+
+  fourInARow(array: (string | null)[]) {
+    let i = 0;
+    while (!array[i] && i < 8) {
+      i++;
+    }
+    const char = array[i];
+    for (let j = i + 1; j < i + 4; j++) {
+      if (array[j] !== char) {
+        return false;
+      }
+    }
+    return char;
+  }
 }
