@@ -45,4 +45,11 @@ export class ConnectFour {
     }
     return char;
   }
+
+  getSquare(x: number, y: number) {
+    if (this._grid[x] === undefined || this._grid[x][y] === undefined) {
+      return false;
+    }
+    return this._grid[x][y];
+  }
 }
