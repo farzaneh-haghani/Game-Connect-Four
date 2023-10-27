@@ -52,4 +52,18 @@ export class ConnectFour {
     }
     return this._grid[x][y];
   }
+
+  getDiagonalRight(row: number, column: number) {
+    let x = 6;
+    let y = -1;
+
+    let result = [];
+
+    while (this.getSquare(x - row, column + y) !== false) {
+      result.push(this.getSquare(x - row, column + y));
+      x--;
+      y++;
+    }
+    return result;
+  }
 }
