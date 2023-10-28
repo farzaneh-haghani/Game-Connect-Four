@@ -66,4 +66,33 @@ export class ConnectFour {
     }
     return result;
   }
+
+  getDiagonalLeft(row: number, column: number) {
+    let x = 6;
+    let y = 1;
+
+    let result = [];
+    while (this.getSquare(x - row, column - y) !== false) {
+      result.push(this.getSquare(x - row, column - y));
+      x--;
+      y++;
+    }
+    return result;
+  }
+
+  gridAsString() {
+    let output = "";
+    this._grid.forEach((row) => {
+      output = output + "|";
+      row.forEach((square) => {
+        if (square == null) {
+          output = output + "_|";
+        } else {
+          output = output + square.charAt(0) + "|";
+        }
+      });
+      output = output + "\n";
+    });
+    return output;
+  }
 }
