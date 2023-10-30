@@ -95,4 +95,29 @@ export class ConnectFour {
     });
     return output;
   }
+
+  getColumn(column: number) {
+    return [
+      this._grid[5][column - 1],
+      this._grid[4][column - 1],
+      this._grid[3][column - 1],
+      this._grid[2][column - 1],
+      this._grid[1][column - 1],
+      this._grid[0][column - 1],
+    ];
+  }
+
+  winner() {
+    for (let j = 1; j < 8; j++) {
+      if (this.fourInARow(this.getColumn(j))) {
+        return this.fourInARow(this.getColumn(j));
+      }
+    }
+    for (let i = 5; i >= 0; i--) {
+      if (this.fourInARow(this._grid[i])) {
+        return this.fourInARow(this._grid[i]);
+      }
+    }
+    return null;
+  }
 }

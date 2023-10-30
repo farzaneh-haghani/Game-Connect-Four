@@ -1,5 +1,17 @@
 import { ConnectFour } from "../utils/class";
 
+test("initial grid", () => {
+  const c4 = new ConnectFour();
+  expect(c4._grid).toStrictEqual([
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+  ]);
+});
+
 describe("drop piece", () => {
   describe("drop piece on top of piece", () => {
     test("drop piece", () => {
@@ -164,6 +176,19 @@ describe("drop piece", () => {
         [null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null],
         ["r", "y", null, null, null, null, null],
+      ]);
+    });
+
+    test("drop pieces in a line III", () => {
+      const c4 = new ConnectFour();
+      c4.playMove("r", 1);
+      expect(c4.getColumn(1)).toStrictEqual([
+        "r",
+        null,
+        null,
+        null,
+        null,
+        null,
       ]);
     });
   });
